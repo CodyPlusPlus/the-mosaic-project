@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2002
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "css487-test", "solutions\test\css487-test\css487-test.vcxproj", "{A0119DF2-0B1F-4D8C-ABE7-9EBFC2C3A47D}"
+EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "css487-main", "solutions\main\css487-main\css487-main.vcxproj", "{430EE7DC-A706-408C-A214-17356DF74B70}"
 EndProject
 Global
@@ -13,6 +15,14 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0119DF2-0B1F-4D8C-ABE7-9EBFC2C3A47D}.Debug|x64.ActiveCfg = Debug|x64
+		{A0119DF2-0B1F-4D8C-ABE7-9EBFC2C3A47D}.Debug|x64.Build.0 = Debug|x64
+		{A0119DF2-0B1F-4D8C-ABE7-9EBFC2C3A47D}.Debug|x86.ActiveCfg = Debug|Win32
+		{A0119DF2-0B1F-4D8C-ABE7-9EBFC2C3A47D}.Debug|x86.Build.0 = Debug|Win32
+		{A0119DF2-0B1F-4D8C-ABE7-9EBFC2C3A47D}.Release|x64.ActiveCfg = Release|x64
+		{A0119DF2-0B1F-4D8C-ABE7-9EBFC2C3A47D}.Release|x64.Build.0 = Release|x64
+		{A0119DF2-0B1F-4D8C-ABE7-9EBFC2C3A47D}.Release|x86.ActiveCfg = Release|Win32
+		{A0119DF2-0B1F-4D8C-ABE7-9EBFC2C3A47D}.Release|x86.Build.0 = Release|Win32
 		{430EE7DC-A706-408C-A214-17356DF74B70}.Debug|x64.ActiveCfg = Debug|x64
 		{430EE7DC-A706-408C-A214-17356DF74B70}.Debug|x64.Build.0 = Debug|x64
 		{430EE7DC-A706-408C-A214-17356DF74B70}.Debug|x86.ActiveCfg = Debug|Win32
