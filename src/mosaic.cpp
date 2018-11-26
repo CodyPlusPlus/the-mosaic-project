@@ -7,22 +7,23 @@
 // makeMosaic: converts an image into a mosaic using a set of smaller images
 // preconditions: the mosaic image and tile images should be square and grayscale, the dimensions of the mosaic image should be a multiple of the dimensions of the tile images
 // postconditions: a new mat will be returned
-cv::Mat makeMosaic(cv::Mat input, int n)
+cv::Mat makeMosaic(const cv::Mat &input, int n)
 {
-	cv::Mat mosaic(input.rows, input.cols, CV_8UC1);
+	cv::Mat mosaic;
+	input.copyTo(mosaic);
 	std::vector<cv::Mat> tiles;
 
-	if (input.rows != input.cols && input.rows % n != 0)
+	if (mosaic.rows != mosaic.cols && mosaic.rows % n != 0)
 	{
 		throw std::exception("err: cannot divide dimensions into tiles evenly!");
 	}
 
 	// create vector of tiles
-	for (int tileR = 0; tileR < input.rows; tileR += input.rows / n)
+	for (int tileR = 0; tileR < mosaic.rows; tileR += mosaic.rows / n)
 	{
-		for (int tileC = 0; tileC < input.cols; tileC += input.cols / n)
+		for (int tileC = 0; tileC < mosaic.cols; tileC += mosaic.cols / n)
 		{
-			tiles.push_back(input(cv::Rect(tileC, tileR, input.cols / n, input.rows / n)));
+			tiles.push_back(mosaic(cv::Rect(tileC, tileR, mosaic.cols / n, mosaic.rows / n)));
 		}
 	}
 
@@ -40,5 +41,5 @@ cv::Mat makeMosaic(cv::Mat input, int n)
 		}
 	}
 
-	return(input);
+	return(mosaic);
 }

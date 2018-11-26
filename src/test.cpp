@@ -12,7 +12,8 @@ TEST_CASE("Prints hello world") {
 TEST_CASE("Tests mosaic function")
 {
 	cv::Mat test = cv::imread("mosaictest.jpg", cv::ImreadModes::IMREAD_GRAYSCALE);
-	test = makeMosaic(test, 100);
-	cv::imwrite("out.jpg", test);
+	cv::Mat test2 = makeMosaic(test, 100);
+	cv::imwrite("out.jpg", test2);
+	cv::imwrite("outorig.jpg", test);
 }
 

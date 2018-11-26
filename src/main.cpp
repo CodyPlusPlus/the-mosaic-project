@@ -1,5 +1,6 @@
 #include <iostream>
 #include "print.hpp"
+#include "mosaic.h"
 
 
 int main() {
