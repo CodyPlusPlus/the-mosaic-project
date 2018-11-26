@@ -9,8 +9,7 @@
 // postconditions: a new mat will be returned
 cv::Mat makeMosaic(const cv::Mat &input, int n)
 {
-	cv::Mat mosaic;
-	input.copyTo(mosaic);
+	cv::Mat mosaic = input.clone();
 	std::vector<cv::Mat> tiles;
 
 	if (mosaic.rows != mosaic.cols && mosaic.rows % n != 0)
