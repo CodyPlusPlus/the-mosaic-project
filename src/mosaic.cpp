@@ -2,12 +2,7 @@
 // Author: Cody Stuck
 // Description: Contains the function definition of makeMosaic()
 
-#include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
-#include <vector>
-#include <iostream>
-#include <exception>
+#include "mosaic.h"
 
 // makeMosaic: converts an image into a mosaic using a set of smaller images
 // preconditions: the mosaic image and tile images should be square and grayscale, the dimensions of the mosaic image should be a multiple of the dimensions of the tile images
@@ -41,7 +36,7 @@ cv::Mat makeMosaic(cv::Mat input, int n)
 		{
 			for (int c = 0; c < tiles[i].cols; c++)
 			{
-				tiles[i].at<uchar>(r, c) = avgIntensity[0];
+				tiles[i].at<uchar>(r, c) = avgIntensity[0]; // TODO: replace this with image retrieval function
 			}
 		}
 	}
