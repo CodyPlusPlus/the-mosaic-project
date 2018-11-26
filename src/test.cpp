@@ -1,8 +1,8 @@
-#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
+#define CATCH_CONFIG_RUNNER  // This tells Catch to provide a main() - only do this in one cpp file
 #include "catch.hpp"
 #include "print.hpp"
 #include "mosaic.h"
-
+#include <iostream>
 
 
 TEST_CASE("Prints hello world") {
@@ -17,3 +17,8 @@ TEST_CASE("Tests mosaic function")
 	cv::imwrite("outorig.jpg", test);
 }
 
+int main(int argc, char ** argv) {
+	int result = Catch::Session().run(argc, argv);
+	system("PAUSE");
+	return result;
+}

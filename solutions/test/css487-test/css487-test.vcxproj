@@ -120,9 +120,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\catch.hpp" />
+    <ClInclude Include="..\..\..\src\mosaic.h" />
     <ClInclude Include="..\..\..\src\print.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\src\mosaic.cpp" />
     <ClCompile Include="..\..\..\src\test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

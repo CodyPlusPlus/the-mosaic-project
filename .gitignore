@@ -366,3 +366,6 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+
+# any jpg files that are generated
+*.jpg
