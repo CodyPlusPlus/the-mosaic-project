@@ -57,8 +57,6 @@ private:
 			else { // currentAve == averagePixelIntensity
 				data.push_back(img);
 			}
-
-			data.push_back(img);
 		}
 
 		std::vector<cv::Mat> getImages(const int intensity) {
@@ -100,7 +98,27 @@ public:
 		root->addImage(img, getAvergePixelIntensity(img));
 	}
 
-	std::vector<cv::Mat> getImages(const int intensity) {
-		return root->getImages(intensity);
+	cv::Mat getImage(const int intensity) {
+		if (root != 0) {
+			std::vector<cv::Mat> outVec = root->getImages(intensity);
+			if (outVec.size() > 0) {
+				cv::Mat out = outVec[0];
+				// remove the out and push it to the back
+				outVec.erase(outVec.begin());
+				outVec.push_back(out);
+				return out;
+			}
+			else {
+				return cv::Mat();
+			}
+		}
+		else {
+			return cv::Mat(); // Empty image for error handling
+		}
+
+	}
+
+	Node* getRoot() {
+		return root;
 	}
 };
