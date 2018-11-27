@@ -1,15 +1,10 @@
 #define CATCH_CONFIG_RUNNER  // This tells Catch to provide a main() - only do this in one cpp file
 #include "catch.hpp"
-#include "print.hpp"
 #include "mosaic.h"
 #include <iostream>
 #include <opencv2/core/core.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
-
-TEST_CASE("Prints hello world") {
-	REQUIRE(printHelloWorld() == "Hello World!");
-}
 
 TEST_CASE("Tests mosaic function")
 {
