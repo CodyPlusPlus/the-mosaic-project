@@ -123,16 +123,14 @@
     <ClInclude Include="..\..\..\src\mosaic.h" />
     <ClInclude Include="..\..\..\src\Node.h" />
     <ClInclude Include="..\..\..\src\Tree.h" />
-    <ClInclude Include="..\..\..\src\Utility.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\mosaic.cpp" />
     <ClCompile Include="..\..\..\src\Node.cpp" />
     <ClCompile Include="..\..\..\src\test_main.cpp" />
+    <ClCompile Include="..\..\..\src\test_node.cpp" />
     <ClCompile Include="..\..\..\src\test_tree.cpp" />
-    <ClCompile Include="..\..\..\src\test_utility.cpp" />
     <ClCompile Include="..\..\..\src\Tree.cpp" />
-    <ClCompile Include="..\..\..\src\Utility.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

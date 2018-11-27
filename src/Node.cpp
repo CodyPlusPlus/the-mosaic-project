@@ -1,7 +1,7 @@
 #include "Node.h"
 
 Node::Node(const cv::Mat& img) {
-	averagePixelIntensity = getAvergePixelIntensity(img);
+	averagePixelIntensity = cv::mean(img)[0];
 	data.push_back(img);
 	left = 0;
 	right = 0;

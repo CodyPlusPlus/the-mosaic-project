@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
 #include <opencv2/core/core.hpp>
-#include "Utility.h"
 #include "Node.h"
 
 class Tree {

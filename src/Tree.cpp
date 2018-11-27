@@ -16,7 +16,7 @@ Tree::~Tree() {
 }
 
 void Tree::addImage(const cv::Mat& img) {
-	root->addImage(img, getAvergePixelIntensity(img));
+	root->addImage(img, cv::mean(img)[0]);
 }
 
 cv::Mat Tree::getImage(const int intensity) {
