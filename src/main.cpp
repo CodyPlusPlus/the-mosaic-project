@@ -1,9 +1,7 @@
 #include <iostream>
-#include "print.hpp"
+#include "Tree.h"
 #include "mosaic.h"
 
-
 int main() {
-	std::cout << printHelloWorld() << std::endl;
 	system("PAUSE");
 }
