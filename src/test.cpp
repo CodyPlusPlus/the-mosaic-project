@@ -32,9 +32,7 @@ TEST_CASE("Tests Tree Constructor") {
 
 	cv::Mat fromTree = treeRoot[0];
 
-	bool isSame = test.rows == fromTree.rows && test.cols == fromTree.cols;
-
-	REQUIRE(isSame);
+	REQUIRE((test.rows == fromTree.rows && test.cols == fromTree.cols));
 }
 
 int main(int argc, char ** argv) {
