@@ -37,13 +37,13 @@ Mat standardizeImage(Mat image, int blocks) {
   return image;
 }
 
-void loadImagesIntoTree(int blocks) {
+void loadImagesIntoTree(Tree & imageTree, int blocks) {
   for (int i = 1; i < 2828; i++) {
     std::string filename = "Emoji/" + to_zero_lead(i, 4) + ".png";
     Mat newImage = cv::imread(filename, cv::ImreadModes::IMREAD_GRAYSCALE);
     if (!newImage.empty()) {
       resize(newImage, newImage, Size(blocks, blocks));
-      // TODO: Add to binary tree
+      imageTree.addImage(newImage);
     }
   }
 }

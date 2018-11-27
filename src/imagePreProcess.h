@@ -12,10 +12,12 @@
 #include <iomanip>
 #include <string>
 
+#include "Tree.h"
+
 using namespace cv;
 
 Mat standardizeImage(Mat image, int blocks);
 
-void loadImagesIntoTree(int blocks);
+void loadImagesIntoTree(Tree & imageTree, int blocks);
 
 std::string to_zero_lead(const int value, const unsigned precision);
