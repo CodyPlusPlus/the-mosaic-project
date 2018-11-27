@@ -118,7 +118,7 @@ public:
 
 	}
 
-	Node* getRoot() {
+	const Node* getRoot() {
 		return root;
 	}
 };

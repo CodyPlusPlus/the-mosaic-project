@@ -125,7 +125,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\mosaic.cpp" />
-    <ClCompile Include="..\..\..\src\test.cpp" />
+    <ClCompile Include="..\..\..\src\test_main.cpp" />
+    <ClCompile Include="..\..\..\src\test_tree.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
