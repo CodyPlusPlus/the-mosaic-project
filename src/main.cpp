@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Tree.hpp"
+#include "Tree.h"
 #include "mosaic.h"
 
 int main() {
