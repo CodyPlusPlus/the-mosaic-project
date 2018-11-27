@@ -1,5 +1,5 @@
 #include "catch.hpp"
-#include "Tree.hpp"
+#include "Tree.h"
 
 
 TEST_CASE("Tests Tree Constructor") {
