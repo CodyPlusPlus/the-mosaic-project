@@ -16,7 +16,7 @@ public:
 
 	void addImage(const cv::Mat& img);
 
-	cv::Mat getImage(const int intensity);
+	cv::Mat getImage(const int intensity) const;
 
 	const Node* getRoot();
 };

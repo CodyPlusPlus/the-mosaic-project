@@ -19,7 +19,7 @@ void Tree::addImage(const cv::Mat& img) {
 	root->addImage(img, cv::mean(img)[0]);
 }
 
-cv::Mat Tree::getImage(const int intensity) {
+cv::Mat Tree::getImage(const int intensity) const {
 	if (root != 0) {
 		std::vector<cv::Mat> outVec = root->getImages(intensity);
 		if (outVec.size() > 0) {
