@@ -1,5 +1,9 @@
 #include "Tree.h"
 
+Tree::Tree(){
+	root= nullptr;
+}
+
 Tree::Tree(const cv::Mat& img) {
 	root = new Node(img);
 }
@@ -16,7 +20,12 @@ Tree::~Tree() {
 }
 
 void Tree::addImage(const cv::Mat& img) {
+	if(root == nullptr){
+		root = new Node(img);
+	}else
+	{
 	root->addImage(img, cv::mean(img)[0]);
+	}
 }
 
 cv::Mat Tree::getImage(const int intensity) const {

@@ -8,6 +8,9 @@ private:
 	Node *root;
 
 public:
+
+	Tree ();
+
 	Tree(const cv::Mat& img);
 
 	Tree(std::vector<cv::Mat> images);
