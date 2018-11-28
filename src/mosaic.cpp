@@ -29,17 +29,17 @@ cv::Mat makeMosaic(const cv::Mat &input, int n, const Tree &subimages)
 	// step through vector of tiles and fill with mean value
 	for (int i = 0; i < tiles.size(); i++)
 	{
-		tiles[i] = subimages.getImage(static_cast<int>(cv::mean(tiles[i])[0])).clone(); // fill each tile with the appropriate subimage
+		int avgIntensity = cv::mean(tiles[i])[0];
+		cv::Mat retrievedTile;
 
-		//cv::Scalar avgIntensity = cv::mean(tiles[i]);
-
-		//for (int r = 0; r < tiles[i].rows; r++)
-		//{
-		//	for (int c = 0; c < tiles[i].cols; c++)
-		//	{
-		//		tiles[i].at<uchar>(r, c) = avgIntensity[0]; // TODO: replace this with image retrieval function
-		//	}
-		//}
+		for (int r = 0; r < tiles[i].rows; r++)
+		{
+			for (int c = 0; c < tiles[i].cols; c++)
+			{
+				retrievedTile = subimages.getImage(avgIntensity);
+				tiles[i].at<uchar>(r, c) = retrievedTile.at<uchar>(r, c); // TODO: replace this with image retrieval function
+			}
+		}
 	}
 
 	return(mosaic);
