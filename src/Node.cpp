@@ -48,10 +48,16 @@ void Node::addImage(const cv::Mat& img, const int currentAve) {
 
 std::vector<cv::Mat> Node::getImages(const int intensity) {
 	if (intensity < averagePixelIntensity) {
-		return left->getImages(intensity);
+		if (left == 0)
+			return data;
+		else
+			return left->getImages(intensity);
 	}
 	else if (intensity > averagePixelIntensity) {
-		return right->getImages(intensity);
+		if (right == 0)
+			return data;
+		else
+			return right->getImages(intensity);
 	}
 	else {
 		return data;

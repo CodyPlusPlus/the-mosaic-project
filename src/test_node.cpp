@@ -44,3 +44,52 @@ TEST_CASE("Orders the images correctly") {
 
 	REQUIRE((isLeft && isRight));
 }
+
+TEST_CASE("getImages works on root") {
+	cv::Mat test(75, 75, CV_8U);
+	setAllPixels(test, 25);
+
+	Node tester(test);
+
+	std::vector<cv::Mat> getBack = tester.getImages(25);
+
+	REQUIRE((getBack.size() == 1));
+	REQUIRE((tester.left == 0 && tester.right == 0));
+}
+
+TEST_CASE("getImages works on leaf nodes") {
+	cv::Mat test1(50, 50, CV_8U);
+	cv::Mat test2(50, 50, CV_8U);
+	cv::Mat test3(50, 50, CV_8U);
+
+	setAllPixels(test1, 25);
+	setAllPixels(test2, 50);
+	setAllPixels(test3, 75);
+
+	Node tester(test2);
+
+	tester.addImage(test1, 25);
+	tester.addImage(test3, 75);
+
+	REQUIRE(tester.getImages(25).size() == 1);
+	REQUIRE(tester.getImages(50).size() == 1);
+	REQUIRE(tester.getImages(75).size() == 1);
+}
+
+TEST_CASE("getImages works for approximate intensities") {
+	cv::Mat test1(50, 50, CV_8U);
+	cv::Mat test2(50, 50, CV_8U);
+
+	setAllPixels(test1, 28);
+	setAllPixels(test2, 39);
+
+	Node tester(test2);
+	tester.addImage(test1, 28);
+
+	std::vector<cv::Mat> getBack1 = tester.getImages(25);
+	std::vector<cv::Mat> getBack2 = tester.getImages(31);
+
+	REQUIRE((getBack1.size() == 1 && getBack2.size() == 1));
+	REQUIRE((getBack1[0].rows == test1.rows && getBack1[0].cols == test1.cols));
+	REQUIRE((getBack2[0].rows == test1.rows && getBack2[0].cols == test1.cols));
+}
