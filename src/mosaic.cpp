@@ -12,17 +12,12 @@ cv::Mat makeMosaic(const cv::Mat &input, int n, const Tree &subimages)
 	cv::Mat mosaic = input.clone();
 	std::vector<cv::Mat> tiles;
 
-	if (mosaic.rows != mosaic.cols && mosaic.rows % n != 0)
-	{
-		throw std::exception("err: cannot divide dimensions into tiles evenly!");
-	}
-
 	// create vector of tiles
-	for (int tileR = 0; tileR < mosaic.rows; tileR += mosaic.rows / n)
+	for (int tileR = 0; tileR < mosaic.rows; tileR += n)
 	{
-		for (int tileC = 0; tileC < mosaic.cols; tileC += mosaic.cols / n)
+		for (int tileC = 0; tileC < mosaic.cols; tileC += n)
 		{
-			tiles.push_back(mosaic(cv::Rect(tileC, tileR, mosaic.cols / n, mosaic.rows / n)));
+			tiles.push_back(mosaic(cv::Rect(tileC, tileR, n, n)));
 		}
 	}
 
