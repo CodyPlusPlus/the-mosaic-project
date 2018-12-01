@@ -6,11 +6,10 @@
 
 int main(int argc, char* argv[]) {
   // Check for correct number of parameters
-  // if(argc != 3){
-  //	std::cout<<"Expected 2 arguments (filename and subimage size(1-120))\n";
-  //	return -1;
-  //}
-  //
+  if(argc != 3){
+  	std::cout<<"Expected 2 arguments (filename and subimage size(1-120))\n";
+  	return -1;
+  }
 
   // Load image into mat and convert to grayscale
   Mat image = imread(argv[1], ImreadModes::IMREAD_GRAYSCALE);
