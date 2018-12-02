@@ -8,18 +8,6 @@
 
 #include "imagePreProcess.h"
 
-// Implementation of padWithZeros
-std::string padWithZeros(const int value, const unsigned precision) {
-  // Create an ostringstream object
-  std::ostringstream oss;
-
-  // Write value to ostringstream object
-  oss << std::setw(precision) << std::setfill('0') << value;
-
-  // Return ostringstream object as string
-  return oss.str();
-}
-
 // Implementation of standardizeSize
 int standardizeSize(int imageDim, int blockSize) {
   // While subimage size does not factor into image dimesion
@@ -50,7 +38,7 @@ void loadImagesIntoTree(Tree* imageTree, int block) {
   // For all the images from 1 to 2827
   for (int i = 1; i < 2828; i++) {
     // Generate relative path to image
-    std::string filename = "Emoji/" + padWithZeros(i, 4) + ".png";
+    std::string filename = "Emoji/" + std::to_string(i) + ".png";
 
     // Load image and convert it to grayscale
     Mat newImage = imread(filename, ImreadModes::IMREAD_GRAYSCALE);

@@ -55,15 +55,3 @@ int standardizeSize(int imageDim, int blockSize);
  *
  */
 void loadImagesIntoTree(Tree* imageTree, int block);
-
-/* padWithZeros : Given a value, pad it with zeros
- *
- * preconditions : values is greater than 0 and precision is 4
- * postcondition : a string containing value padded with zeros will be returned
- * parameters:
- *    value : number to pad
- *    precision : number of digit that should exist
- *
- * returns : a string of size precision, with padding for values under 1000
- */
-std::string padWithZeros(const int value, const unsigned precision);
