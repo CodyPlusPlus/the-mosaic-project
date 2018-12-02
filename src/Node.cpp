@@ -8,8 +8,10 @@ Node::Node(const cv::Mat& img) {
 }
 
 Node::~Node() {
-	delete left;
-	delete right;
+	if(left) 
+		delete left;
+	if(right)
+		delete right;
 }
 
 void Node::selfDestruct() {
