@@ -43,7 +43,7 @@ Since there were 3 people working on this project, dividing the work was easy en
 - Brady worked on the tree of images.
 - Cody worked on making the mosaic.
 
-We all worked on unit tests for our own respective components. 
+We all worked on unit tests for our own respective components.
 
 ## Project Outcomes
 
@@ -51,3 +51,8 @@ Our program takes in an image as input, and creates a mosaic image using 2800+ i
 
 ## Examples
 
+Before:
+![Before_Image](https://cdn.discordapp.com/attachments/509833085861363738/517484476708945920/test.jpg)
+
+After:
+![After_Image](https://cdn.discordapp.com/attachments/509833085861363738/517484514847490054/output.jpg)
