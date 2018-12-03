@@ -120,13 +120,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\catch.hpp" />
+    <ClInclude Include="..\..\..\src\imagePreProcess.h" />
     <ClInclude Include="..\..\..\src\mosaic.h" />
     <ClInclude Include="..\..\..\src\Node.h" />
     <ClInclude Include="..\..\..\src\Tree.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\src\imagePreProcess.cpp" />
     <ClCompile Include="..\..\..\src\mosaic.cpp" />
     <ClCompile Include="..\..\..\src\Node.cpp" />
+    <ClCompile Include="..\..\..\src\test_IPP.cpp" />
     <ClCompile Include="..\..\..\src\test_main.cpp" />
     <ClCompile Include="..\..\..\src\test_node.cpp" />
     <ClCompile Include="..\..\..\src\test_tree.cpp" />
