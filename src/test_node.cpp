@@ -93,3 +93,23 @@ TEST_CASE("getImages works for approximate intensities") {
 	REQUIRE((getBack1[0].rows == test1.rows && getBack1[0].cols == test1.cols));
 	REQUIRE((getBack2[0].rows == test1.rows && getBack2[0].cols == test1.cols));
 }
+
+TEST_CASE("Self-destruct works properly by deleting leaf nodes") {
+	cv::Mat test1(50, 50, CV_8U);
+	cv::Mat test2(75, 75, CV_8U);
+	cv::Mat test3(100, 100, CV_8U);
+
+	setAllPixels(test1, 20);
+	setAllPixels(test2, 30);
+	setAllPixels(test3, 40);
+
+	Node tester(test2);
+
+	tester.addImage(test1, 20);
+	tester.addImage(test3, 40);
+
+	tester.selfDestruct();
+
+	REQUIRE(tester.left == nullptr);
+	REQUIRE(tester.right == nullptr);
+}
