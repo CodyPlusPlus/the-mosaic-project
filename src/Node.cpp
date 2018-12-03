@@ -3,32 +3,35 @@
 Node::Node(const cv::Mat& img) {
 	averagePixelIntensity = cv::mean(img)[0];
 	data.push_back(img);
-	left = 0;
-	right = 0;
+	left = nullptr;
+	right = nullptr;
 }
 
 Node::~Node() {
-	if(left) 
-		delete left;
-	if(right)
-		delete right;
+	data.clear();
+	delete left;
+	left = nullptr;
+	delete right;
+	right = nullptr;
 }
 
 void Node::selfDestruct() {
-	if (left) {
+	if (left != nullptr) {
 		left->selfDestruct();
 		delete left;
+		left = nullptr;
 	}
 
-	if (right) {
+	if (right != nullptr) {
 		right->selfDestruct();
 		delete right;
+		right = nullptr;
 	}
 }
 
 void Node::addImage(const cv::Mat& img, const int currentAve) {
 	if (currentAve < averagePixelIntensity) {
-		if (left) {
+		if (left != nullptr) {
 			left->addImage(img, currentAve);
 		}
 		else {
@@ -36,7 +39,7 @@ void Node::addImage(const cv::Mat& img, const int currentAve) {
 		}
 	}
 	else if (currentAve > averagePixelIntensity) {
-		if (right) {
+		if (right != nullptr) {
 			right->addImage(img, currentAve);
 		}
 		else {
@@ -50,13 +53,13 @@ void Node::addImage(const cv::Mat& img, const int currentAve) {
 
 std::vector<cv::Mat> Node::getImages(const int intensity) {
 	if (intensity < averagePixelIntensity) {
-		if (left == 0)
+		if (left == nullptr)
 			return data;
 		else
 			return left->getImages(intensity);
 	}
 	else if (intensity > averagePixelIntensity) {
-		if (right == 0)
+		if (right == nullptr)
 			return data;
 		else
 			return right->getImages(intensity);
