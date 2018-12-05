@@ -6,12 +6,12 @@ The second line is the name of the file, followed by a new line for the name of 
 ## .h Files
 Our .h files contain only the declaration of our functions. However, this is the most important file to look over if you want to know what each function does.
 Above the declaration of each function we have the following structure:
-*name of file : Description of what the function does
-*precondition : The conditions that must be true in order for function to work
-*postcondition : The things to expects after the function has completed execution
-*params : A list of parameters (if applicable)
+* name of file : Description of what the function does
+* precondition : The conditions that must be true in order for function to work
+* postcondition : The things to expects after the function has completed execution
+* params : A list of parameters (if applicable)
 *    param name : What the params is or what it is used for
-*return : What the functon returns (if applicable)
+* return : What the functon returns (if applicable)
 
 ## .cpp Files (Excluding Test Files)
 Our .cpp files contain the meat of the code. This is where we implement the functions declared in the .h files.
