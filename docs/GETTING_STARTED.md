@@ -20,12 +20,12 @@ You must have the following libraries installed on your local machine:
 
 #### Running the batch file
 
-- ensure that you have an image named 'test.jpg' in the same directory as the batch file.
+- ensure that you have an image named 'test.jpg' and folder called 'Emoji' containing emojis in the same directory as the batch file.
 - Double-click the batch file. it should start the program.
 
 #### Running the solution via Visual Studios
 
-- Ensure that you have an image in the same directory as the solution 
+- Ensure that you have an image called 'test.jpg' and a folder called 'Emoji' containing emojis in the same directory as the solution 
 - Run the solution in 'Debug' mode with the 'x64' configuration.
 
 ### Test Solution
