@@ -32,7 +32,7 @@ void fillTiles(std::vector<cv::Mat> &tiles, const Tree &fillImages) {
     int avgIntensity = cv::mean(tiles[i])[0];
 
     // Get a subimage from tree with close/matching intensity
-    cv::Mat retrievedTile fillImages.getImage(avgIntensity);
+    cv::Mat retrievedTile = fillImages.getImage(avgIntensity);
 
     // For the rows and cols in tile
     for (int r = 0; r < tiles[i].rows; r++) {
