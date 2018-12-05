@@ -1,61 +1,60 @@
-// File: mosaic.cpp
-// Author: Cody Stuck
-// Description: Contains the function definition of makeMosaic()
+/* mosaic : Contains implementation of functions
+ *
+ * File: mosaic.cpp
+ * Author: Cody Stuck
+ *
+ */
 
 #include "mosaic.h"
 
-// allocateTiles: creates a vector of mats that refer to a larger mat
-// precondtions: the dimensions of the mat should be divisible by n
-// postconditions: a vector of nxn tile mats is returned
-std::vector<cv::Mat> allocateTiles(const cv::Mat &inputImage, int n)
-{
-	std::vector<cv::Mat> tiles;
+// Implementation : allocateTiles
+std::vector<cv::Mat> allocateTiles(const cv::Mat &inputImage, int n) {
+  // Vector to return
+  std::vector<cv::Mat> tiles;
 
-	for (int tileR = 0; tileR < inputImage.rows; tileR += n)
-	{
-		for (int tileC = 0; tileC < inputImage.cols; tileC += n)
-		{
-			tiles.push_back(inputImage(cv::Rect(tileC, tileR, n, n)));
-		}
-	}
+  // For all the rows and columns of the image
+  for (int tileR = 0; tileR < inputImage.rows; tileR += n) {
+    for (int tileC = 0; tileC < inputImage.cols; tileC += n) {
+      // Add tile corresponding tile to vector
+      tiles.push_back(inputImage(cv::Rect(tileC, tileR, n, n)));
+    }
+  }
 
-	return(tiles);
+  // Return vector
+  return (tiles);
 }
 
-// fillTiles: replaces the contents of a vector of Mats with images of nearest values retrieved from a tree
-// postconditions: the Mats in the vector will be overwritten
-void fillTiles(std::vector<cv::Mat> &tiles, const Tree &fillImages)
-{
-	for (int i = 0; i < tiles.size(); i++)
-	{
-		int avgIntensity = cv::mean(tiles[i])[0];
-		cv::Mat retrievedTile;
+// Implementation : fillTiles
+void fillTiles(std::vector<cv::Mat> &tiles, const Tree &fillImages) {
+  // For all the tiles in vector
+  for (int i = 0; i < tiles.size(); i++) {
+    // Get the average intensity
+    int avgIntensity = cv::mean(tiles[i])[0];
 
-		for (int r = 0; r < tiles[i].rows; r++)
-		{
-			for (int c = 0; c < tiles[i].cols; c++)
-			{
-				retrievedTile = fillImages.getImage(avgIntensity);
-				tiles[i].at<uchar>(r, c) = retrievedTile.at<uchar>(r, c);
-			}
-		}
-	}
+    // Get a subimage from tree with close/matching intensity
+    cv::Mat retrievedTile fillImages.getImage(avgIntensity);
+
+    // For the rows and cols in tile
+    for (int r = 0; r < tiles[i].rows; r++) {
+      for (int c = 0; c < tiles[i].cols; c++) {
+        // Overwrite pixel in tile image with that of retrieved image
+        tiles[i].at<uchar>(r, c) = retrievedTile.at<uchar>(r, c);
+      }
+    }
+  }
 }
 
-// makeMosaic: converts an image into a mosaic using a set of smaller images
-// preconditions: the mosaic image and tile images should be square and grayscale, the dimensions of the mosaic image should be a multiple of the dimensions of the tile images
-// postconditions: a new mat will be returned
-cv::Mat makeMosaic(const cv::Mat &input, int n, const Tree &subimages)
-{
-	cv::Mat mosaic = input.clone();
+// Implementation : makeMosaic
+cv::Mat makeMosaic(const cv::Mat &input, int n, const Tree &subimages) {
+  // Create image to return
+  cv::Mat mosaic = input.clone();
 
-	// create vector of tiles
-	std::vector<cv::Mat> tiles = allocateTiles(mosaic, n);
+  // create vector of tiles
+  std::vector<cv::Mat> tiles = allocateTiles(mosaic, n);
 
-	// step through vector of tiles and fill with mean value
-	fillTiles(tiles, subimages);
+  // step through vector of tiles and fill with mean value
+  fillTiles(tiles, subimages);
 
-	return(mosaic);
+  // Return mosaic
+  return (mosaic);
 }
-
-
