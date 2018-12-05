@@ -69,7 +69,7 @@ class Node {
    *
    * return : a vector of images
    */
-  std::vector<cv::Mat> getImages(const int intensity);
+  std::vector<cv::Mat>& getImages(const int intensity);
 
   /* getAverage : Returns the average pixel intensity (key) of node
    *

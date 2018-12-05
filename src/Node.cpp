@@ -87,7 +87,7 @@ void Node::addImage(const cv::Mat& img, const int currentAve) {
 }
 
 // Implementation : getImages
-std::vector<cv::Mat> Node::getImages(const int intensity) {
+std::vector<cv::Mat>& Node::getImages(const int intensity) {
   // If given intensity less than current node intensity
   if (intensity < averagePixelIntensity) {
     // If left child does NOT exists, return data of current node
