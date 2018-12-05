@@ -6,9 +6,9 @@
 
 int main(int argc, char* argv[]) {
   // Check for correct number of parameters
-  if(argc != 3){
-  	std::cout<<"Expected 2 arguments (filename and subimage size(1-120))\n";
-  	return -1;
+  if (argc != 3) {
+    std::cout << "Expected 2 arguments (filename and subimage size(1-120))\n";
+    return -1;
   }
 
   // Load image into mat and convert to grayscale
@@ -22,10 +22,10 @@ int main(int argc, char* argv[]) {
     // Get subpixel size
     int subImageSize = std::atoi(argv[2]);
 
-    // Make sure subimage size is within bounds  
-    if(subImageSize < 1 || subImageSize > 120){
-	    std::cout<<"Subimage size out of bounds, expected 1-120\n";
-	    return -1;
+    // Make sure subimage size is within bounds
+    if (subImageSize < 1 || subImageSize > 120) {
+      std::cout << "Subimage size out of bounds, expected 1-120\n";
+      return -1;
     }
 
     // Convert image to a perfect square
