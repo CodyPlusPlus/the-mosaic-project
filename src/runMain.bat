@@ -1,0 +1,1 @@
+start "" ../x64/Debug/css487-main.exe test.jpg 10
