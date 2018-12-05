@@ -7,15 +7,12 @@
 #include <opencv2/highgui/highgui.hpp>
 
 
-TEST_CASE("Tests mosaic function")
+TEST_CASE("Test allocate tiles")
 {
-	/*Tree testTree();
-	cv::Mat test = cv::imread("mosaictest.jpg", cv::ImreadModes::IMREAD_GRAYSCALE);
-	cv::Mat test2 = makeMosaic(test, 100, testTree);
-	cv::imwrite("out.jpg", test2);
-	cv::imwrite("outorig.jpg", test);*/
-
-	//TODO: make a test for the mosaic function
+	int n = 5, w = 50, h = 120;
+	cv::Mat testMat(w, h, CV_8UC1);
+	std::vector<cv::Mat> testTiles = allocateTiles(testMat, 5);
+	REQUIRE(testTiles.size() == (w / n) * (h / n));
 }
 
 int main(int argc, char ** argv) {
