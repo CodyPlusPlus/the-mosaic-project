@@ -60,7 +60,7 @@ cv::Mat Tree::getImage(const int intensity) const {
   // If root not nullptr
   if (root != nullptr) {
     // Get the vector of images with given intensity
-    std::vector<cv::Mat> outVec = root->getImages(intensity);
+    std::vector<cv::Mat>& outVec = root->getImages(intensity);
 
     // If vector contains images
     if (outVec.size() > 0) {
@@ -71,8 +71,8 @@ cv::Mat Tree::getImage(const int intensity) const {
       outVec.erase(outVec.begin());
       outVec.push_back(out);
 
-      // Return the image
-      return out;
+	  // Return the image
+	  return out;
     }
     // Vector is empty, return blank image
     else {

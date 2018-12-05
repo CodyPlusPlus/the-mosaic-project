@@ -5,13 +5,12 @@
  *
  */
 
-#include <iostream>
 #include "Node.h"
 #include "catch.hpp"
 
 void setAllPixels(cv::Mat& img, const int setter) {
-  for (int r = 0; r < img.rows; r++)
-    for (int c = 0; c < img.cols; c++) img.at<char>(r, c) = setter;
+	for (int r = 0; r < img.rows; r++)
+		for (int c = 0; c < img.cols; c++) img.at<char>(r, c) = setter;
 }
 
 TEST_CASE("Gets correct average pixel intensity") {
