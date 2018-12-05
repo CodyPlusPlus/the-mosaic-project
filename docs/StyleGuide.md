@@ -1,4 +1,13 @@
 # Code Style Guide
+### By A.Golovin, B.Pascoe, C.Stuck
+
+## Code Format
+Even though our code was written by three different people, all with different coding styles, and in multiple development environments, we attempted to standardize the format or style of our code.
+
+To accomplish this, we used a formatting tool called: clang-format. Using this tool we formatted all .h and .cpp files to Google's style guide. This was accomplished using the "-style=Google" flag.
+
+Using this tool, our code is uniformally formatted and the only way to tell who it is written by is by looking at file preamble.
+
 ## File Preamble
 The beginning of every .h and .cpp file follows a similar style:
 * Name of file (not include .h/.cpp) : A description of what is in the file
